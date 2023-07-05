@@ -1,3 +1,4 @@
+
 # coding=utf-8
 # Copyright 2022 The IDEA Authors. All rights reserved.
 #
@@ -22,13 +23,9 @@
 
 import glob
 import os
-import shutil
-import subprocess
-from os import path
-from setuptools import find_packages, setup
-from typing import List
 import torch
-from torch.utils.cpp_extension import CUDA_HOME, CppExtension, CUDAExtension
+from setuptools import setup
+from torch.utils.cpp_extension import CppExtension, CUDAExtension
 
 
 this_dir = os.path.dirname(os.path.abspath(__file__))
@@ -76,24 +73,3 @@ setup(
     cmdclass={'build_ext': torch.utils.cpp_extension.BuildExtension}
 )
 
-
-if __name__ == "__main__":
-
-    setup(
-        name="detrex",
-        version="0.3.0",
-        author="International Digital Economy Academy",
-        url="https://github.com/rentainhe/detrex",
-        description="IDEA open source toolbox for transformer-based instance recognition tasks",
-        license=license,
-        install_requires=parse_requirements("requirements.txt"),
-        packages=find_packages(
-            exclude=(
-                "configs",
-                "tests",
-            )
-        ),
-        package_data={"detrex.config": get_detrex_configs()},
-        ext_modules=get_extensions(),
-        cmdclass={"build_ext": torch.utils.cpp_extension.BuildExtension},
-    )
