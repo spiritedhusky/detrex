@@ -337,7 +337,7 @@ class SetCriterion(nn.Module):
         outputs_without_aux = {k: v for k, v in outputs.items() if k != "aux_outputs"}
 
         # Retrieve the matching between the outputs of the last layer and the targets
-        if self.dn is not "no" and mask_dict is not None:
+        if self.dn != "no" and mask_dict is not None:
             output_known_lbs_bboxes,num_tgt,single_pad,scalar = self.prep_for_dn(mask_dict)
             exc_idx = []
             for i in range(len(targets)):
