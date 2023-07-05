@@ -555,7 +555,7 @@ def create_dummy_func(func, dependency, message=""):
 
 
 try:
-    from detrex import _C
+    import detrexc
 except ImportError:
     # TODO: register ops natively so there is no need to import _C.
     _msg = "detrex is not compiled successfully, please build following the instructions!"
