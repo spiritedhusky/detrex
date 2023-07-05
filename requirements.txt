@@ -8,7 +8,7 @@ black
 autoflake
 timm
 pytest
-scipy=
+scipy
 psutil
 opencv-python
 wandb
