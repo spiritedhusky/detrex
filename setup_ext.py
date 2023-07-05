@@ -59,7 +59,7 @@ include_dirs = [extensions_dir]
 
 ext_modules = [
     extension(
-        "detrex_c",
+        "detrexc",
         sources,
         include_dirs=include_dirs,
         define_macros=define_macros,
@@ -68,7 +68,7 @@ ext_modules = [
 ]
 
 setup(
-    name="detrex_c",
+    name="detrexc",
     ext_modules=ext_modules,
     cmdclass={'build_ext': torch.utils.cpp_extension.BuildExtension}
 )
