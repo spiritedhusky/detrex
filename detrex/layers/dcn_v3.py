@@ -38,7 +38,7 @@ class DCNv3Function(Function):
         ctx.group_channels = group_channels
         ctx.offset_scale = offset_scale
         ctx.im2col_step = im2col_step
-        output = _C.dcnv3_forward(
+        output = detrexc.dcnv3_forward(
             input, offset, mask, kernel_h,
             kernel_w, stride_h, stride_w, pad_h,
             pad_w, dilation_h, dilation_w, group,
@@ -53,7 +53,7 @@ class DCNv3Function(Function):
     def backward(ctx, grad_output):
         input, offset, mask = ctx.saved_tensors
         grad_input, grad_offset, grad_mask = \
-            _C.dcnv3_backward(
+            detrexc.dcnv3_backward(
                 input, offset, mask, ctx.kernel_h,
                 ctx.kernel_w, ctx.stride_h, ctx.stride_w, ctx.pad_h,
                 ctx.pad_w, ctx.dilation_h, ctx.dilation_w, ctx.group,
